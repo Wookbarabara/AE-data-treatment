@@ -186,8 +186,8 @@ def main(method=1, model=0, smooth=0):
 
 # 14：用模型对用建立模型的数据进行分类，查看建立模型时的分类效果, 0:twin, 1:kink
 
-#15
 
-# model:0没有模型，1有模型；smooth：0不光滑化，1光滑化
+# 15: 用kmeans的结果对svm处理的DeNosie文件进行处理（删除可能为噪声的数据）
+#     model:0没有模型，1有模型；smooth：0不光滑化，1光滑化
 if __name__ == '__main__':
     main(method=8, model=0, smooth=1)

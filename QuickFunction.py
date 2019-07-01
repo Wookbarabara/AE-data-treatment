@@ -142,7 +142,7 @@ def svm_machine_learn_model(file_cluster, filetrace_cluster, filetrace, draw=0, 
     return label_fre[0]
 
 
-def kmeans_machine_learn(file, filetrace, filetrace_file_cluster, smooth, cluster):
+def kmeans_machine_learn(file, filetrace, filetrace_file_cluster, smooth, filename_mark, cluster):
     print('kmeans_machine_learn is running')
     f = Screening.read_file(file)
     # 提取出所有有用信号的频域向量
@@ -164,20 +164,20 @@ def kmeans_machine_learn(file, filetrace, filetrace_file_cluster, smooth, cluste
     for i in temp:
         temp1.append(i)
     # 保存文件
-    filename = 'Kmeans_averange_frequency.csv'
-    f =  filetrace + '\\'+ 'File after Processing' + '\\' + filename
+    filename = 'Kmeans_averange_frequency'
+    f =  filetrace + '\\'+ 'File after Processing' + '\\' + filename + filename_mark + '.csv'
     np.savetxt(f, temp1, fmt='%s', delimiter=',')
     print('Kmeans_averange_frequency File made')
 
     # 保存文件， 每个cluster的平均频谱
-    filename = 'Kmeans_label.csv'
-    f =  filetrace + '\\'+ 'File after Processing' + '\\' + filename
+    filename = 'Kmeans_label'
+    f =  filetrace + '\\'+ 'File after Processing' + '\\' + filename + filename_mark + '.csv'
     np.savetxt(f, label_fre[0], fmt='%s', delimiter=',')
     print('Kmeans_label File made')
 
     # 绘制分类结果二维视图
     # result = [label, [[cluster1],[cluster2],[cluster3],...]]
-    DrawImage.draw_clusterings_kmeans(label_fre, filetrace)
+    DrawImage.draw_clusterings_kmeans(label_fre, filetrace, filename_mark)
     return label_fre[0]
 
 
@@ -248,7 +248,8 @@ def model_origin_data(file_twin, file_kink, filetrace_twin, filetrace_kink, file
     fre = fre_twin
     for i in fre_kink:
         fre.append(i)
-
+    # for i in fre:
+    #     print(i)
     # 测试模型精确度
     model_path = filetrace + '\\' + r'Model\train0_model.m'
     model_svm = joblib.load(model_path)
@@ -292,3 +293,8 @@ def model_origin_data(file_twin, file_kink, filetrace_twin, filetrace_kink, file
     # 绘制2D可视化视图
     result1 = [label_cluster, fre]
     DrawImage.draw_clusterings_svm(result1, filetrace, filename_mark)
+
+
+# 用kmeans的结果对svm处理的DeNosie文件进行处理（删除可能为噪声的数据）
+def svm_file_kmeans_treat(file, filename, filetrace, label_kmeans, aim_cluster):
+    MachineLearning.svm_origin_data_process(file, filename, filetrace, label_kmeans, aim_cluster)

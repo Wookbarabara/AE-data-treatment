@@ -119,12 +119,13 @@ def data_fre(file, filetrace, smooth=0):
                 temp2.append(i.strip(',').split(','))
             event = temp2
             # 变成二重list了
+            # 取两个ch的平均值
             for i in range(1, len(event)):
                 if float(event[i][4]) <= fre_min:
                     continue
                 if float(event[i][4]) >= fre_max:
                     break
-                temp.append(event[i][5])
+                temp.append((float(event[i][5])+float(event[i][6]))/2)
             fre.append(temp)
         # 对fre进行光滑化
         for i in range(len(fre)):
@@ -171,7 +172,7 @@ def data_fre(file, filetrace, smooth=0):
                     continue
                 if float(event[i][4]) >= fre_max:
                     break
-                temp.append(event[i][5])
+                temp.append((float(event[i][5])+float(event[i][6]))/2)
             fre.append(temp)
         result = [frequency, fre]
     return result  # [[frequency range], [[fre1],[fre2],[fre3]...[fre-n]]]

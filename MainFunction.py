@@ -5,7 +5,7 @@ import QuickFunction
 
 def main(method=1, model=0, smooth=0):
     # 文件目录
-    filetrace = r'C:\Users\liuhanqing\Desktop\research\Academic conference\data\Frequency Smoothing\event-200ms\AE'
+    filetrace = r'C:\Users\liuhanqing\Desktop\research\Academic conference\data\Frequency Smoothing\event-200ms\AE_kmean_treat-Test'
     # 处理用的文件名，若没有DeNoise，则先用method=3生成DeNoise文件
     filename = r'KINK-train-LPSOMg-0deg-Test1-EVT43dB-DeNoise'
     # 对生成文件进行标记
@@ -18,8 +18,8 @@ def main(method=1, model=0, smooth=0):
 
     # SVM 中训练模型文件
     # twin和kink文件名
-    filename_twin = r'TWIN-training-Mg-Test1-EVT40dB-DeNoise'
-    filename_kink = r'KINK-train-LPSOMg-0deg-Test1-EVT43dB-DeNoise'
+    filename_twin = r'TWIN-training-Mg-Test1-EVT40dB-DeNoise-kmeans_treated'
+    filename_kink = r'KINK-train-LPSOMg-0deg-Test1-EVT43dB-DeNoise-kmeans_treated'
     file_twin = filetrace + '\\' + filename_twin + '.csv'
     file_kink = filetrace + '\\' + filename_kink + '.csv'
     # twin和kink中event文件路径
@@ -97,7 +97,7 @@ def main(method=1, model=0, smooth=0):
     # Kmeans number-time of different cluster
     if method == 9:
         # 获得分类结果
-        label = QuickFunction.kmeans_machine_learn(file_cluster, filetrace, filetrace_file_cluster, smooth, cluster=3)
+        label = QuickFunction.kmeans_machine_learn(file_cluster, filetrace, filetrace_file_cluster, smooth, filename_mark, cluster=3)
         print('kmeans machine learning over!')
         # 生成文件
         QuickFunction.n_t_c(file_cluster, filetrace, filename, label)
@@ -142,6 +142,13 @@ def main(method=1, model=0, smooth=0):
         QuickFunction.model_origin_data(file_twin, file_kink, filetrace_twin, filetrace_kink, filetrace, filename_mark, smooth)
         print('model_origin_data over!')
 
+    # 用kmeans的结果对svm处理的DeNosie文件进行处理（删除可能为噪声的数据）
+    if method == 15:
+        label_kmeans = r'Kmeans_label-LPSO-0deg-Test1'
+        filename = r'KINK-train-LPSOMg-0deg-Test1-EVT43dB-DeNoise'
+        aim_cluster = 2
+        QuickFunction.svm_file_kmeans_treat(file_cluster, filename, filetrace, label_kmeans, aim_cluster)
+        print('svm_file_kmeans_treat over!')
 
 # 说明：
 # 0：svm机器学习（无model）；
@@ -180,8 +187,8 @@ def main(method=1, model=0, smooth=0):
 
 # 14：用模型对用建立模型的数据进行分类，查看建立模型时的分类效果, 0:twin, 1:kink
 
-#15
+# 15: 用kmeans的结果对svm处理的DeNosie文件进行处理（删除可能为噪声的数据）
 
-# model:0没有模型，1有模型；smooth：0不光滑化，1光滑化
+#     model:0没有模型，1有模型；smooth：0不光滑化，1光滑化
 if __name__ == '__main__':
-    main(method=9, model=0, smooth=1)
+    main(method=15, model=0, smooth=1)

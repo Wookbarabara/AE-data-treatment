@@ -7,6 +7,8 @@ from sklearn.metrics import accuracy_score
 from sklearn import svm
 from sklearn.externals import joblib
 import DrawImage
+import Screening
+import numpy as np
 
 
 # ===================================================
@@ -94,6 +96,8 @@ def ave_fre(result, fre_range):
     for i in range(len(label)):
         for j in range(n):
             if label[i] == j:
+                # if j==1:
+                #     print(fre[i])
                 fre_cluster[j].append(fre[i])
             else:
                 continue
@@ -166,3 +170,25 @@ def skl_kmeans(fre, cluster=2):
     cluster_label = kmeans.labels_
     result = [cluster_label, data_fre]
     return result       # result = [cluster_label, data_fre]
+
+
+# 利用k-means的分类结果，对svm使用的分类数据进行筛选
+# 原因：数据中存在一些极端数据，会对整个结果产生影响
+# 方法：先k-means分类，查看结果中主要类别和其他类别的平均频谱的差别，以及数量上的差别。
+#      再决定是否选取一组数据使用
+# 编码思路：先获得Kmeans的label，然后对DeNoise文件进行进一步操作，删除主管判断为噪声的文件
+# file: Demoise 文件，filetrace: 文件存放位置, label：kmeans分类结果的标签,为文件名，需要读取文件
+def svm_origin_data_process(file, filename, filetrace, label_kmeans, aim_cluster):
+    # 读取label文件
+    label_file = filetrace + '\\' + r'File after Processing' + '\\' + label_kmeans + '.csv'
+    label = Screening.read_file(label_file)
+    # 读取DeNoise文件
+    data = Screening.read_file(file)
+    file_treated = [data[0]]
+    for i in range(len(label)):
+        if float(label[i]) == float(aim_cluster):
+            file_treated.append(data[i+1])
+    # 保存文件
+    f = filetrace + '\\' + filename + r'-kmeans_treated.csv'
+    np.savetxt(f, file_treated, fmt='%s', delimiter=',')
+    print('DeNoise file-kmeans_treated File made')

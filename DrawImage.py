@@ -41,7 +41,7 @@ def draw_clusterings_svm(result, filetrace, filename_mark):
 
 # kmean 绘制分类结果二维视图
 # result = [label, [[cluster1],[cluster2],[cluster3],...]]
-def draw_clusterings_kmeans(result, filetrace):
+def draw_clusterings_kmeans(result, filetrace, filename_mark):
     label = result[0]
     n_cluster = len(set(label))
     X = np.array(result[1])
@@ -62,7 +62,7 @@ def draw_clusterings_kmeans(result, filetrace):
     filenumber = 0
     for i in cluster:
         filenumber = filenumber + 1
-        filename = 'KMeans_cluster' + str(filenumber) + r'-Normalization.csv'
+        filename = 'KMeans_cluster' + str(filenumber) + r'-Normalization' + filename_mark + '.csv'
         f = filetrace + '\\'+ 'File after Processing' + '\\' + filename
         np.savetxt(f, i, fmt='%s', delimiter=',')
     print('KMeans 2D Image File made!')

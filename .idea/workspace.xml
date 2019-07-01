@@ -13,8 +13,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Screening.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="111">
               <caret line="82" column="18" lean-forward="true" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
+=======
+            <state relative-caret-position="442">
+              <caret line="105" column="21" selection-start-line="105" selection-start-column="21" selection-end-line="105" selection-end-column="21" />
+>>>>>>> cc5e7ba65716324b7e87c53e6e01a46b4886647f
               <folding>
                 <element signature="e#45#63#0" expanded="true" />
               </folding>
@@ -25,7 +30,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RelationFile.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="2002">
+=======
+            <state relative-caret-position="1513">
+>>>>>>> cc5e7ba65716324b7e87c53e6e01a46b4886647f
               <caret line="91" column="46" selection-start-line="91" selection-start-column="24" selection-end-line="91" selection-end-column="46" />
               <folding>
                 <element signature="e#45#63#0" expanded="true" />
@@ -37,11 +46,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MachineLearning.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="111">
               <caret line="90" column="4" lean-forward="true" selection-start-line="90" selection-start-column="4" selection-end-line="109" selection-end-column="41" />
               <folding>
                 <element signature="e#45#82#0" expanded="true" />
               </folding>
+=======
+            <state relative-caret-position="343">
+              <caret line="188" column="10" lean-forward="true" selection-start-line="188" selection-start-column="10" selection-end-line="188" selection-end-column="10" />
+>>>>>>> cc5e7ba65716324b7e87c53e6e01a46b4886647f
             </state>
           </provider>
         </entry>
@@ -49,11 +63,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DrawImage.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="155">
               <caret line="59" column="48" lean-forward="true" selection-start-line="59" selection-start-column="48" selection-end-line="59" selection-end-column="48" />
               <folding>
                 <element signature="e#45#63#0" expanded="true" />
                 <element signature="e#352#1311#0" />
+=======
+            <state relative-caret-position="-235">
+              <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="48" />
+              <folding>
+                <element signature="e#45#63#0" expanded="true" />
+                <element signature="e#1444#2270#0" />
+>>>>>>> cc5e7ba65716324b7e87c53e6e01a46b4886647f
               </folding>
             </state>
           </provider>
@@ -62,8 +84,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/QuickFunction.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="287">
               <caret line="148" column="32" selection-start-line="148" selection-start-column="32" selection-end-line="148" selection-end-column="32" />
+=======
+            <state relative-caret-position="326">
+              <caret line="293" column="69" selection-start-line="293" selection-start-column="69" selection-end-line="293" selection-end-column="69" />
+>>>>>>> cc5e7ba65716324b7e87c53e6e01a46b4886647f
               <folding>
                 <element signature="e#45#63#0" expanded="true" />
               </folding>
@@ -74,8 +101,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainFunction.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="122">
               <caret line="99" column="40" selection-start-line="99" selection-start-column="40" selection-end-line="99" selection-end-column="40" />
+=======
+            <state relative-caret-position="231">
+              <caret line="144" selection-start-line="144" selection-end-line="144" />
+>>>>>>> cc5e7ba65716324b7e87c53e6e01a46b4886647f
             </state>
           </provider>
         </entry>
@@ -83,8 +115,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Test.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="572">
               <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+=======
+            <state relative-caret-position="170">
+              <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+>>>>>>> cc5e7ba65716324b7e87c53e6e01a46b4886647f
             </state>
           </provider>
         </entry>
@@ -110,11 +150,18 @@
         <option value="$PROJECT_DIR$/Relation_File.py" />
         <option value="$PROJECT_DIR$/Machine_Learning.py" />
         <option value="$PROJECT_DIR$/RelationFile.py" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/Screening.py" />
         <option value="$PROJECT_DIR$/QuickFunction.py" />
         <option value="$PROJECT_DIR$/MachineLearning.py" />
+=======
+        <option value="$PROJECT_DIR$/Test.py" />
+        <option value="$PROJECT_DIR$/Screening.py" />
+>>>>>>> cc5e7ba65716324b7e87c53e6e01a46b4886647f
         <option value="$PROJECT_DIR$/DrawImage.py" />
+        <option value="$PROJECT_DIR$/QuickFunction.py" />
         <option value="$PROJECT_DIR$/MainFunction.py" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/Test.py" />
       </list>
     </option>
@@ -124,6 +171,15 @@
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
+=======
+        <option value="$PROJECT_DIR$/MachineLearning.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="918" />
+    <option name="height" value="1041" />
+>>>>>>> cc5e7ba65716324b7e87c53e6e01a46b4886647f
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -214,7 +270,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+=======
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+>>>>>>> cc5e7ba65716324b7e87c53e6e01a46b4886647f
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.029013539" />
@@ -260,6 +320,7 @@
     <entry file="file://$PROJECT_DIR$/venv/Relation_File.py" />
     <entry file="file://$USER_HOME$/PycharmProjects/Count/venv/Lib/site-packages/numpy/lib/_datasource.py" />
     <entry file="file://D:/Test1_machine_learning.py" />
+<<<<<<< HEAD
     <entry file="file://$USER_HOME$/PycharmProjects/Count/venv/Lib/site-packages/sklearn/utils/validation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
@@ -284,6 +345,14 @@
     <entry file="file://$PROJECT_DIR$/RelationFile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2002">
+=======
+    <entry file="file://$USER_HOME$/PycharmProjects/Count/venv/Lib/site-packages/sklearn/utils/validation.py" />
+    <entry file="file://$USER_HOME$/PycharmProjects/Count/venv/Lib/site-packages/numpy/lib/npyio.py" />
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/958644694/builtins.py" />
+    <entry file="file://$PROJECT_DIR$/RelationFile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1513">
+>>>>>>> cc5e7ba65716324b7e87c53e6e01a46b4886647f
           <caret line="91" column="46" selection-start-line="91" selection-start-column="24" selection-end-line="91" selection-end-column="46" />
           <folding>
             <element signature="e#45#63#0" expanded="true" />
@@ -291,6 +360,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/DrawImage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -306,23 +376,42 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
           <caret line="99" column="40" selection-start-line="99" selection-start-column="40" selection-end-line="99" selection-end-column="40" />
+=======
+    <entry file="file://$PROJECT_DIR$/Test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+>>>>>>> cc5e7ba65716324b7e87c53e6e01a46b4886647f
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/QuickFunction.py">
+    <entry file="file://$PROJECT_DIR$/Screening.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="287">
           <caret line="148" column="32" selection-start-line="148" selection-start-column="32" selection-end-line="148" selection-end-column="32" />
+=======
+        <state relative-caret-position="442">
+          <caret line="105" column="21" selection-start-line="105" selection-start-column="21" selection-end-line="105" selection-end-column="21" />
+>>>>>>> cc5e7ba65716324b7e87c53e6e01a46b4886647f
           <folding>
             <element signature="e#45#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Screening.py">
+    <entry file="file://$PROJECT_DIR$/QuickFunction.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="111">
           <caret line="82" column="18" lean-forward="true" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
+=======
+        <state relative-caret-position="326">
+          <caret line="293" column="69" selection-start-line="293" selection-start-column="69" selection-end-line="293" selection-end-column="69" />
+>>>>>>> cc5e7ba65716324b7e87c53e6e01a46b4886647f
           <folding>
             <element signature="e#45#63#0" expanded="true" />
           </folding>
@@ -331,18 +420,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MachineLearning.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="111">
           <caret line="90" column="4" lean-forward="true" selection-start-line="90" selection-start-column="4" selection-end-line="109" selection-end-column="41" />
           <folding>
             <element signature="e#45#82#0" expanded="true" />
+=======
+        <state relative-caret-position="-235">
+          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="48" />
+          <folding>
+            <element signature="e#45#63#0" expanded="true" />
+            <element signature="e#1444#2270#0" />
+>>>>>>> cc5e7ba65716324b7e87c53e6e01a46b4886647f
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="572">
           <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+=======
+    <entry file="file://$PROJECT_DIR$/MachineLearning.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="188" column="10" lean-forward="true" selection-start-line="188" selection-start-column="10" selection-end-line="188" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainFunction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="144" selection-start-line="144" selection-end-line="144" />
+>>>>>>> cc5e7ba65716324b7e87c53e6e01a46b4886647f
         </state>
       </provider>
     </entry>

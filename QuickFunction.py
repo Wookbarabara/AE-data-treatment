@@ -292,3 +292,8 @@ def model_origin_data(file_twin, file_kink, filetrace_twin, filetrace_kink, file
     # 绘制2D可视化视图
     result1 = [label_cluster, fre]
     DrawImage.draw_clusterings_svm(result1, filetrace, filename_mark)
+
+
+# 用kmeans的结果对svm处理的DeNosie文件进行处理（删除可能为噪声的数据）
+def svm_file_kmeans_treat(file, filename, filetrace, label_kmeans, aim_cluster):
+    MachineLearning.svm_origin_data_process(file, filename, filetrace, label_kmeans, aim_cluster)

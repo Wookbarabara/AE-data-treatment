@@ -142,6 +142,12 @@ def main(method=1, model=0, smooth=0):
         QuickFunction.model_origin_data(file_twin, file_kink, filetrace_twin, filetrace_kink, filetrace, filename_mark, smooth)
         print('model_origin_data over!')
 
+    # 用kmeans的结果对svm处理的DeNosie文件进行处理（删除可能为噪声的数据）
+    if method == 15:
+        label_kmeans = r''
+        aim_cluster = 0
+        QuickFunction.svm_file_kmeans_treat(file, filename, filetrace, label_kmeans, aim_cluster)
+        print('svm_file_kmeans_treat over!')
 
 # 说明：
 # 0：svm机器学习（无model）；

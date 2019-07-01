@@ -13,12 +13,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Screening.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-700">
-              <caret line="83" column="7" lean-forward="true" selection-start-line="83" selection-start-column="7" selection-end-line="83" selection-end-column="7" />
+            <state relative-caret-position="111">
+              <caret line="82" column="18" lean-forward="true" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
               <folding>
                 <element signature="e#45#63#0" expanded="true" />
-                <element signature="e#2210#2311#0" />
-                <element signature="e#3965#5440#0" />
               </folding>
             </state>
           </provider>
@@ -27,7 +25,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RelationFile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-186">
+            <state relative-caret-position="2002">
               <caret line="91" column="46" selection-start-line="91" selection-start-column="24" selection-end-line="91" selection-end-column="46" />
               <folding>
                 <element signature="e#45#63#0" expanded="true" />
@@ -39,8 +37,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MachineLearning.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="83" column="27" lean-forward="true" selection-start-line="83" selection-start-column="27" selection-end-line="83" selection-end-column="27" />
+            <state relative-caret-position="111">
+              <caret line="90" column="4" lean-forward="true" selection-start-line="90" selection-start-column="4" selection-end-line="109" selection-end-column="41" />
               <folding>
                 <element signature="e#45#82#0" expanded="true" />
               </folding>
@@ -51,12 +49,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DrawImage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="87" column="27" lean-forward="true" selection-start-line="87" selection-start-column="27" selection-end-line="87" selection-end-column="27" />
+            <state relative-caret-position="155">
+              <caret line="59" column="48" lean-forward="true" selection-start-line="59" selection-start-column="48" selection-end-line="59" selection-end-column="48" />
               <folding>
                 <element signature="e#45#63#0" expanded="true" />
                 <element signature="e#352#1311#0" />
-                <element signature="e#1444#2270#0" />
               </folding>
             </state>
           </provider>
@@ -65,8 +62,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/QuickFunction.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-968">
-              <caret line="228" column="105" lean-forward="true" selection-start-line="228" selection-start-column="105" selection-end-line="228" selection-end-column="105" />
+            <state relative-caret-position="287">
+              <caret line="148" column="32" selection-start-line="148" selection-start-column="32" selection-end-line="148" selection-end-column="32" />
               <folding>
                 <element signature="e#45#63#0" expanded="true" />
               </folding>
@@ -74,23 +71,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainFunction.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
+            <state relative-caret-position="122">
+              <caret line="99" column="40" selection-start-line="99" selection-start-column="40" selection-end-line="99" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="572">
+              <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -104,6 +98,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -113,39 +110,29 @@
         <option value="$PROJECT_DIR$/Relation_File.py" />
         <option value="$PROJECT_DIR$/Machine_Learning.py" />
         <option value="$PROJECT_DIR$/RelationFile.py" />
-        <option value="$PROJECT_DIR$/Test.py" />
-        <option value="$PROJECT_DIR$/MachineLearning.py" />
         <option value="$PROJECT_DIR$/Screening.py" />
         <option value="$PROJECT_DIR$/QuickFunction.py" />
+        <option value="$PROJECT_DIR$/MachineLearning.py" />
         <option value="$PROJECT_DIR$/DrawImage.py" />
         <option value="$PROJECT_DIR$/MainFunction.py" />
+        <option value="$PROJECT_DIR$/Test.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="width" value="917" />
-    <option name="height" value="1040" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="AE program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AE program" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -163,7 +150,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.MainFunction">
+  <component name="RunManager" selected="Python.Test">
     <configuration name="MainFunction" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AE program" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -208,8 +195,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.MainFunction" />
         <item itemvalue="Python.Test" />
+        <item itemvalue="Python.MainFunction" />
       </list>
     </recent_temporary>
   </component>
@@ -227,14 +214,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="917" height="1040" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.029013539" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49874687" visible="true" weight="0.2688053" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49874687" visible="true" weight="0.26826608" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39933628" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -286,26 +274,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RelationFile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-186">
-          <caret line="91" column="46" selection-start-line="91" selection-start-column="24" selection-end-line="91" selection-end-column="46" />
-          <folding>
-            <element signature="e#45#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/958644694/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
@@ -313,20 +281,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MachineLearning.py">
+    <entry file="file://$PROJECT_DIR$/RelationFile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="83" column="27" lean-forward="true" selection-start-line="83" selection-start-column="27" selection-end-line="83" selection-end-column="27" />
+        <state relative-caret-position="2002">
+          <caret line="91" column="46" selection-start-line="91" selection-start-column="24" selection-end-line="91" selection-end-column="46" />
           <folding>
-            <element signature="e#45#82#0" expanded="true" />
+            <element signature="e#45#63#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DrawImage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="59" column="48" lean-forward="true" selection-start-line="59" selection-start-column="48" selection-end-line="59" selection-end-column="48" />
+          <folding>
+            <element signature="e#45#63#0" expanded="true" />
+            <element signature="e#352#1311#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainFunction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="99" column="40" selection-start-line="99" selection-start-column="40" selection-end-line="99" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/QuickFunction.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-968">
-          <caret line="228" column="105" lean-forward="true" selection-start-line="228" selection-start-column="105" selection-end-line="228" selection-end-column="105" />
+        <state relative-caret-position="287">
+          <caret line="148" column="32" selection-start-line="148" selection-start-column="32" selection-end-line="148" selection-end-column="32" />
           <folding>
             <element signature="e#45#63#0" expanded="true" />
           </folding>
@@ -335,32 +321,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Screening.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-700">
-          <caret line="83" column="7" lean-forward="true" selection-start-line="83" selection-start-column="7" selection-end-line="83" selection-end-column="7" />
+        <state relative-caret-position="111">
+          <caret line="82" column="18" lean-forward="true" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
           <folding>
             <element signature="e#45#63#0" expanded="true" />
-            <element signature="e#2210#2311#0" />
-            <element signature="e#3965#5440#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DrawImage.py">
+    <entry file="file://$PROJECT_DIR$/MachineLearning.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="87" column="27" lean-forward="true" selection-start-line="87" selection-start-column="27" selection-end-line="87" selection-end-column="27" />
+        <state relative-caret-position="111">
+          <caret line="90" column="4" lean-forward="true" selection-start-line="90" selection-start-column="4" selection-end-line="109" selection-end-column="41" />
           <folding>
-            <element signature="e#45#63#0" expanded="true" />
-            <element signature="e#352#1311#0" />
-            <element signature="e#1444#2270#0" />
+            <element signature="e#45#82#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainFunction.py">
+    <entry file="file://$PROJECT_DIR$/Test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
+        <state relative-caret-position="572">
+          <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
         </state>
       </provider>
     </entry>

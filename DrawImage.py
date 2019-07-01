@@ -62,7 +62,7 @@ def draw_clusterings_kmeans(result, filetrace):
     filenumber = 0
     for i in cluster:
         filenumber = filenumber + 1
-        filename = 'KMeans_cluster-cluter' + str(filenumber) + r'-Normalization.csv'
+        filename = 'KMeans_cluster' + str(filenumber) + r'-Normalization.csv'
         f = filetrace + '\\'+ 'File after Processing' + '\\' + filename
         np.savetxt(f, i, fmt='%s', delimiter=',')
     print('KMeans 2D Image File made!')

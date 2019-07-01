@@ -112,12 +112,12 @@ def ave_fre(result, fre_range):
 
 
 # 计算出分类cluster的平均频率分布，result里存储的是频率的counts，频率储存在fre_range里
-# [cluster_label, data_fre]
+# [cluster_label, data_fre]，检测过，这个函数ok
 def kmeans_ave_fre(result, fre_range, cluster):
     print('kmeans_ave_fre is running')
     label = result[0]  # 0是cluster0，1是cluster1,...
     fre = result[1]
-    print('label: ', label, '\n', 'fre: ', fre)
+    # print('label: ', label, '\n', 'fre: ', fre)
     # 计算有几类cluster, 不一定是cluster个分类
     n = len(set(label))
     print('n: ', n)

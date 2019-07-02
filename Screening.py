@@ -127,10 +127,12 @@ def data_fre(file, filetrace, smooth=0):
                     break
                 temp.append((float(event[i][5])+float(event[i][6]))/2)
             fre.append(temp)
-        # 对fre进行光滑化
+        # 对fre进行光滑化, 和标准化
         for i in range(len(fre)):
+            # 光滑化
             fre[i] = DrawImage.fre_smoothing(fre[i])
-
+            # 标准化
+            fre[i] = DrawImage.normalize(fre[i])
         result = [frequency, fre]
     if smooth == 0:
         print('No Smooth! ')
@@ -174,6 +176,12 @@ def data_fre(file, filetrace, smooth=0):
                     break
                 temp.append((float(event[i][5])+float(event[i][6]))/2)
             fre.append(temp)
+            # 对fre进行光滑化, 和标准化
+        for i in range(len(fre)):
+            # 光滑化
+            fre[i] = DrawImage.fre_smoothing(fre[i])
+            # 标准化
+            fre[i] = DrawImage.normalize(fre[i])
         result = [frequency, fre]
     return result  # [[frequency range], [[fre1],[fre2],[fre3]...[fre-n]]]
 

@@ -38,6 +38,8 @@ def skl_svm(data_twin, data_kink, data_fre, filetrace, filename_mark):
     train_label = data_fre_label[0]
     train_fre = data_fre_label[1]
     test_data = data_fre
+    # 现在用KINK信号检测模型
+    data_fre_label = [1 for i in range(len(data_fre))]
     accuracy = 0
     print('Model Training Start!')
     while accuracy < 0.8:
@@ -57,6 +59,8 @@ def skl_svm(data_twin, data_kink, data_fre, filetrace, filename_mark):
         print('y_predicted: ', list(y_predicted))
     save_model(model_svm, filetrace)
     cluster_label = model_svm.predict(test_data)
+    accuracy1 = accuracy_score(data_fre_label, cluster_label)
+    print('The Accuracy of KINK-test2: ', accuracy1)
     result = [cluster_label, data_fre]
 
     # 绘制可视化二维图

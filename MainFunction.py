@@ -5,9 +5,9 @@ import QuickFunction
 
 def main(method=1, model=0, smooth=0):
     # 文件目录
-    filetrace = r'C:\Users\liuhanqing\Desktop\research\Academic conference\data\Frequency Smoothing\event-200ms\AE_kmean_treat-Test'
+    filetrace = r'C:\Users\liuhanqing\Desktop\research\Academic conference\data\Frequency Smoothing\normalize\event-200ms\AE'
     # 处理用的文件名，若没有DeNoise，则先用method=3生成DeNoise文件
-    filename = r'KINK-train-LPSOMg-0deg-Test1-EVT43dB-DeNoise'
+    filename = r'KINK-test-LPSOMg-0deg-Test2-EVT38dB-DeNoise'
     # 对生成文件进行标记
     filename_mark = ''
 
@@ -18,8 +18,8 @@ def main(method=1, model=0, smooth=0):
 
     # SVM 中训练模型文件
     # twin和kink文件名
-    filename_twin = r'TWIN-training-Mg-Test1-EVT40dB-DeNoise-kmeans_treated'
-    filename_kink = r'KINK-train-LPSOMg-0deg-Test1-EVT43dB-DeNoise-kmeans_treated'
+    filename_twin = r'TWIN-training-Mg-Test1-EVT40dB-DeNoise'
+    filename_kink = r'KINK-train-LPSOMg-0deg-Test1-EVT43dB-DeNoise'
     file_twin = filetrace + '\\' + filename_twin + '.csv'
     file_kink = filetrace + '\\' + filename_kink + '.csv'
     # twin和kink中event文件路径
@@ -199,4 +199,4 @@ def main(method=1, model=0, smooth=0):
 
 #     model:0没有模型，1有模型；smooth：0不光滑化，1光滑化
 if __name__ == '__main__':
-    main(method=16, model=0, smooth=1)
+    main(method=8, model=0, smooth=1)

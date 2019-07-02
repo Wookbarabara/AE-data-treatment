@@ -97,3 +97,14 @@ def fre_smoothing(frequency):
         temp = temp / 5
         result.append(temp)
     return result
+
+
+def normalize(frequency):
+    value_max = max(frequency)
+    value_min = min(frequency)
+    max_min = value_max - value_min
+    frequency_normalize = []
+    for i in frequency:
+        temp = (i-value_min)/max_min
+        frequency_normalize.append(temp)
+    return frequency_normalize

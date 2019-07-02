@@ -150,6 +150,14 @@ def main(method=1, model=0, smooth=0):
         QuickFunction.svm_file_kmeans_treat(file_cluster, filename, filetrace, label_kmeans, aim_cluster)
         print('svm_file_kmeans_treat over!')
 
+    # 将主要cluster进行再一次的分类（检测里面是否有异常）
+    if method == 16:
+        filename = r'KINK-train-LPSOMg-0deg-Test1-EVT43dB-DeNoise-kmeans_treated'
+        filetrace = r'C:\Users\liuhanqing\Desktop\research\Academic conference\data\Frequency Smoothing\event-200ms\AE_kmean_treat-Test'
+        file = filetrace + '\\' + filename + '.csv'
+        label = QuickFunction.main_cluster_kmeans_treat(file, filename, filetrace, smooth)
+        QuickFunction.n_t_c(file, filetrace, filename, label)
+
 # 说明：
 # 0：svm机器学习（无model）；
 #    生成label并保存模型
@@ -187,8 +195,8 @@ def main(method=1, model=0, smooth=0):
 
 # 14：用模型对用建立模型的数据进行分类，查看建立模型时的分类效果, 0:twin, 1:kink
 
-# 15: 用kmeans的结果对svm处理的DeNosie文件进行处理（删除可能为噪声的数据）
+# 15: 用kmeans的结果对svm处理的DeNosie文件进行处理（删除可能为噪声的数据），并生成主要cluster的频域csv文件
 
 #     model:0没有模型，1有模型；smooth：0不光滑化，1光滑化
 if __name__ == '__main__':
-    main(method=15, model=0, smooth=1)
+    main(method=16, model=0, smooth=1)

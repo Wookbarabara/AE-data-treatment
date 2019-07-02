@@ -151,7 +151,7 @@ def kmeans_machine_learn(file, filetrace, filetrace_file_cluster, smooth, filena
     fre = frequency[1]
     # kmeans 学习部分
     label_fre = MachineLearning.skl_kmeans(fre, cluster=cluster)    # [cluster_label, data_fre]
-    result = MachineLearning.kmeans_ave_fre(label_fre, fre_range, cluster)   # [[frequency range], [[fre1_cluster1],[fre2_cluster2],[fre3_cluster3],[fre4_cluster4], ...]]
+    result = MachineLearning.kmeans_ave_fre(label_fre, fre_range)   # [[frequency range], [[fre1_cluster1],[fre2_cluster2],[fre3_cluster3],[fre4_cluster4], ...]]
     n = len(set(label_fre[0]))
     title = ['fre-range']
     for i in range(n):
@@ -298,3 +298,28 @@ def model_origin_data(file_twin, file_kink, filetrace_twin, filetrace_kink, file
 # 用kmeans的结果对svm处理的DeNosie文件进行处理（删除可能为噪声的数据）
 def svm_file_kmeans_treat(file, filename, filetrace, label_kmeans, aim_cluster):
     MachineLearning.svm_origin_data_process(file, filename, filetrace, label_kmeans, aim_cluster)
+
+
+# 将主要cluster进行再一次的分类（检测里面是否有异常）
+def main_cluster_kmeans_treat(file, filename, filetrace, smooth=1):
+    f = Screening.read_file(file)
+    event_filetrace = filetrace + '\\' + filename
+    fre = Screening.data_fre(f, event_filetrace, smooth)        # [[frequency range], [[fre1],[fre2],[fre3]...[fre-n]]]
+    result = MachineLearning.skl_kmeans(fre[1], cluster=2)         # result = [[cluster_label], [[fre1],[fre2]]]
+    result1 = MachineLearning.kmeans_ave_fre(result, fre[0])    # [[frequency range], [[fre1_cluster1],[fre2_cluster2],...]]
+    n = 2
+    title = ['fre-range']
+    for i in range(n):
+        title.append(str(i))
+    temp = [result1[0]]
+    for i in result1[1]:
+        temp.append(i)
+    temp1 = [title]
+    temp = np.transpose(temp).tolist()
+    for i in temp:
+        temp1.append(i)
+    print(temp1)
+    # 保存文件
+    f = filetrace + '\\'  + filename + r'-kmeans_treated-main_clustering.csv'
+    np.savetxt(f, temp1, fmt='%s', delimiter=',')
+    return result[0]

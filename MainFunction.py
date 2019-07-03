@@ -7,7 +7,7 @@ def main(method=1, model=0, smooth=0):
     # 文件目录
     filetrace = r'C:\Users\liuhanqing\Desktop\research\Academic conference\data\Frequency Smoothing\normalize\event-200ms\AE'
     # 处理用的文件名，若没有DeNoise，则先用method=3生成DeNoise文件
-    filename = r'KINK-test-LPSOMg-0deg-Test2-EVT38dB-DeNoise'
+    filename = r'KINK-train-LPSOMg-0deg-Test1-EVT43dB-DeNoise'
     # 对生成文件进行标记
     filename_mark = ''
 
@@ -52,9 +52,9 @@ def main(method=1, model=0, smooth=0):
 
     # DeNoise
     # voice_speed: 纯Mg = 4.8， 纯Zn = 4.2，  纯LPSO = 5.5
-    voice_speed = 4.8
+    voice_speed = 5.5
     if method == 3:
-        filename = r'TWIN-training-Mg-Test1-EVT40dB'
+        filename = r'KINK-LPSO-0deg-Test3-EVT38dB'
         file = filetrace + '\\' + filename + '.csv'
         QuickFunction.denoise(file, filetrace, filename, voice_speed, channel=1)
         print('denoise over!')
@@ -131,10 +131,11 @@ def main(method=1, model=0, smooth=0):
 
     # 测试svm模型
     if method == 13:
-        filename = r'KINK-test-LPSOMg-0deg-Test2-EVT38dB-DeNoise'
+        filename = r'KINK-LPSO-0deg-Test3-EVT38dB-DeNoise'
         filetrace_file_cluster = filetrace + '\\' + filename
         file = filetrace + '\\' + filename + '.csv'
-        QuickFunction.model_test(file, filename, filetrace, filetrace_file_cluster, smooth)
+        data_type = 'kink'
+        QuickFunction.model_test(data_type, file, filename, filetrace, filetrace_file_cluster, smooth)
 
     # 用模型对用建立模型的数据进行分类，查看建立模型时的分类效果, 0:twin, 1:kink
     if method == 14:
@@ -199,4 +200,4 @@ def main(method=1, model=0, smooth=0):
 
 #     model:0没有模型，1有模型；smooth：0不光滑化，1光滑化
 if __name__ == '__main__':
-    main(method=8, model=0, smooth=1)
+    main(method=13, model=0, smooth=1)

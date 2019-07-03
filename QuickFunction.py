@@ -199,7 +199,7 @@ def data_standard(file, filename, filetrace):
 
 
 # 检测模型的准确率
-def model_test(file, filename, filetrace, filetrace_file_cluster, smooth):
+def model_test(data_type, file, filename, filetrace, filetrace_file_cluster, smooth):
     f = Screening.read_file(file)
     data_fre_range_fre = Screening.data_fre(f, filetrace_file_cluster, smooth)    # [[frequency range], [[fre1],[fre2],[fre3]...[fre-n]]]
     print(data_fre_range_fre[1])
@@ -218,7 +218,10 @@ def model_test(file, filename, filetrace, filetrace_file_cluster, smooth):
             n_kink = n_kink + 1
     # print('kink: ',n_kink)
     # print('twin: ', n_twin)
-    accuracy = n_twin / (n_twin + n_kink)
+    if data_type == 'twin':
+        accuracy = n_twin / (n_twin + n_kink)
+    if data_type == 'kink':
+        accuracy = n_kink / (n_twin + n_kink)
     print('Accuracy: ', accuracy)
     txtfile = ['Accuracy: ' + str(accuracy)]
     file = filetrace + r'\Model Test' + '\\' + filename + '-Accuracy.txt'

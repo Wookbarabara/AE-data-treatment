@@ -34,7 +34,7 @@ def merge_fre(data_fre_twin, data_fre_kink):
 # 输入为[[fre1],[fre2],[fre3]...[fre-n]]
 def skl_svm(data_twin, data_kink, data_fre, filetrace, filename_mark):
     print('slk_svm is running')
-    data_fre_label = merge_fre(data_twin, data_kink)
+    data_fre_label = merge_fre(data_twin, data_kink)    # [[label], [fre]]
     train_label = data_fre_label[0]
     train_fre = data_fre_label[1]
     test_data = data_fre
@@ -49,18 +49,18 @@ def skl_svm(data_twin, data_kink, data_fre, filetrace, filename_mark):
         if len(set(y_train)) == 1:
             continue
         # 训练模型
-        model_svm = svm.SVC(C=1, kernel='linear', gamma=1)
+        model_svm = svm.SVC(C=139, kernel='linear', gamma=1, probability=True)
         model_svm.fit(x_train, y_train)
         # 查看模型精度
         y_predicted = model_svm.predict(x_test)
         accuracy = accuracy_score(y_test, y_predicted)
         print('accuracy: ', accuracy)
         print('y_test: ', y_test)
-        print('y_predicted: ', list(y_predicted))
+        # print('y_predicted: ', list(y_predicted))
     save_model(model_svm, filetrace)
     cluster_label = model_svm.predict(test_data)
     accuracy1 = accuracy_score(data_fre_label, cluster_label)
-    print('The Accuracy of KINK-test2: ', accuracy1)
+    print('The Accuracy of test: ', accuracy1)
     result = [cluster_label, data_fre]
 
     # 绘制可视化二维图

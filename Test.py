@@ -1,10 +1,11 @@
-import DrawImage
+import numpy as np
+from sklearn import svm
 
-fre = [1,2,3,4,5,6,7]
+X = np.array([[-1, -1], [-2, -1], [1, 1], [2, 1]])
+y = np.array([1, 1, 2, 2])
 
-fre = DrawImage.fre_smoothing(fre)
-print(fre)
-# 标准化
-fre = DrawImage.normalize(fre)
-
-print(fre)
+clf = svm.SVC(probability=True,random_state=1,gamma='auto')
+clf.fit(X,y)
+scores = clf.predict_proba([[1,0]])
+# 输出属于每个聚类的概率
+print (scores)

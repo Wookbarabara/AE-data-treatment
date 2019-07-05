@@ -7,7 +7,7 @@ def main(method=1, model=0, smooth=0):
     # 文件目录
     filetrace = r'C:\Users\liuhanqing\Desktop\research\Academic conference\data\Frequency Smoothing\normalize\event-200ms\AE'
     # 处理用的文件名，若没有DeNoise，则先用method=3生成DeNoise文件
-    filename = r'KINK-train-LPSOMg-0deg-Test1-EVT43dB-DeNoise'
+    filename = r'KINK-test-LPSOMg-0deg-Test2-EVT38dB-DeNoise'
     # 对生成文件进行标记
     filename_mark = ''
 
@@ -159,6 +159,13 @@ def main(method=1, model=0, smooth=0):
         label = QuickFunction.main_cluster_kmeans_treat(file, filename, filetrace, smooth)
         QuickFunction.n_t_c(file, filetrace, filename, label)
 
+    # 计算一个实验样本的标准化平均频谱
+    if method == 17:
+        filename = r'TWIN-training-Mg-Test1-EVT40dB-DeNoise'
+        filetrace = r'C:\Users\liuhanqing\Desktop\research\Academic conference\data\Frequency Smoothing\normalize\event-200ms\AE'
+        file = filetrace + '\\' + filename + '.csv'
+        QuickFunction.averange_intensity_fre(file, filename, filetrace, smooth)
+
 # 说明：
 # 0：svm机器学习（无model）；
 #    生成label并保存模型
@@ -200,4 +207,4 @@ def main(method=1, model=0, smooth=0):
 
 #     model:0没有模型，1有模型；smooth：0不光滑化，1光滑化
 if __name__ == '__main__':
-    main(method=13, model=0, smooth=1)
+    main(method=8, model=0, smooth=1)

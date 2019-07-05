@@ -49,7 +49,7 @@ def skl_svm(data_twin, data_kink, data_fre, filetrace, filename_mark):
         if len(set(y_train)) == 1:
             continue
         # 训练模型
-        model_svm = svm.SVC(C=139, kernel='linear', gamma=1, probability=True)
+        model_svm = svm.SVC(C=20, kernel='linear', gamma=1, probability=True)
         model_svm.fit(x_train, y_train)
         # 查看模型精度
         y_predicted = model_svm.predict(x_test)

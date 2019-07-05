@@ -207,7 +207,7 @@ def model_test(data_type, file, filename, filetrace, filetrace_file_cluster, smo
     file = filetrace + r'\Model Test' + '\\' + filename + '-Label.csv'
     np.savetxt(file, result[0], fmt='%s', delimiter=',')
     print('Model Test Over!')
-    # 测试文件为twin：
+    # 测试文件为twin还是kink：
     n_twin = 0
     n_kink = 0
     print(len(result[0]))
@@ -326,3 +326,32 @@ def main_cluster_kmeans_treat(file, filename, filetrace, smooth=1):
     f = filetrace + '\\'  + filename + r'-kmeans_treated-main_clustering.csv'
     np.savetxt(f, temp1, fmt='%s', delimiter=',')
     return result[0]
+
+
+# 计算一个实验样本的标准化平均频谱
+def averange_intensity_fre(file, filename, filetrace, smooth=1):
+    f = Screening.read_file(file)
+    event_filetrace = filetrace + '\\' + filename
+    fre = Screening.data_fre(f, event_filetrace, smooth)        # [[frequency range], [[fre1]]]
+    # for i in fre:
+    #     print(i)
+    ave_fre = []
+    temp_fre = 0
+    for i in range(len(fre[1][0])):
+        for j in range(len(fre[1])):
+            temp_fre = temp_fre + float(fre[1][j][i])
+        temp_fre = temp_fre / len(fre[1])
+        ave_fre.append(temp_fre)
+        temp_fre = 0
+    ave_fre = DrawImage.normalize(ave_fre)
+    title = ['fre-range', 'Relative Intensity']
+    temp = [fre[0], ave_fre]
+    temp1 = [title]
+    temp = np.transpose(temp).tolist()
+    for i in temp:
+        temp1.append(i)
+
+    # 保存文件
+    f = filetrace + '\\' + 'File after Processing' + '\\' + filename + r'-Nor_ave_instensity_frequency.csv'
+    np.savetxt(f, temp1, fmt='%s', delimiter=',')
+    print('Averange_intensity_fre File made')

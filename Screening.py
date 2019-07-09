@@ -81,7 +81,7 @@ def renumber(file):
 
 # 提取出所有有用信号的频域向量
 # event文件，以及要提取的event文件的文件夹
-def data_fre(file, filetrace, smooth=0):
+def data_fre(file, filetrace, smooth=1):
     print('data_fre is running')
     if smooth == 1:
         print('Smooth! ')
@@ -110,7 +110,7 @@ def data_fre(file, filetrace, smooth=0):
         for file_num in range(1, len(file)):
             temp = []
             f = filetrace + '\\' + file_name + str(file_num) + file_type
-            print('data_fre for ', file_num/len(file)*100, '%')
+            # print('data_fre for ', file_num/len(file)*100, '%')
             # 文件内部有','，不能用这个来隔开元素
             # 分类之后，将数据变成二重list
             event = np.loadtxt(f, dtype=np.str, delimiter='/t')

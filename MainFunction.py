@@ -131,10 +131,10 @@ def main(method=1, model=0, smooth=0):
 
     # 测试svm模型
     if method == 13:
-        filename = r'KINK-LPSO-0deg-Test3-EVT38dB-DeNoise'
+        filename = r'TWIN-test-Mg-Test2-EVT40dB-DeNoise'
         filetrace_file_cluster = filetrace + '\\' + filename
         file = filetrace + '\\' + filename + '.csv'
-        data_type = 'kink'
+        data_type = 'twin'
         QuickFunction.model_test(data_type, file, filename, filetrace, filetrace_file_cluster, smooth)
 
     # 用模型对用建立模型的数据进行分类，查看建立模型时的分类效果, 0:twin, 1:kink
@@ -165,6 +165,19 @@ def main(method=1, model=0, smooth=0):
         filetrace = r'C:\Users\liuhanqing\Desktop\research\Academic conference\data\Frequency Smoothing\normalize\event-200ms\AE'
         file = filetrace + '\\' + filename + '.csv'
         QuickFunction.averange_intensity_fre(file, filename, filetrace, smooth)
+
+    # random forest
+    if method == 18:
+        QuickFunction.random_forest_learn(file_twin, file_kink, filetrace_twin, filetrace_kink, filetrace, smooth)
+        print('RF machine learning model-0 over!')
+
+    # random forest 模型准确度测试
+    if method == 19:
+        filename = r'KINK-LPSO-0deg-Test3-EVT38dB-DeNoise'
+        filetrace_file_cluster = filetrace + '\\' + filename
+        file = filetrace + '\\' + filename + '.csv'
+        data_type = 'kink'
+        QuickFunction.RF_model_test(data_type, file, filename, filetrace, filetrace_file_cluster, smooth)
 
 # 说明：
 # 0：svm机器学习（无model）；
@@ -207,4 +220,4 @@ def main(method=1, model=0, smooth=0):
 
 #     model:0没有模型，1有模型；smooth：0不光滑化，1光滑化
 if __name__ == '__main__':
-    main(method=8, model=0, smooth=1)
+    main(method=19, model=0, smooth=1)

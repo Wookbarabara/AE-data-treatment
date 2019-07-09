@@ -202,7 +202,7 @@ def data_standard(file, filename, filetrace):
 def model_test(data_type, file, filename, filetrace, filetrace_file_cluster, smooth):
     f = Screening.read_file(file)
     data_fre_range_fre = Screening.data_fre(f, filetrace_file_cluster, smooth)    # [[frequency range], [[fre1],[fre2],[fre3]...[fre-n]]]
-    print(data_fre_range_fre[1])
+    # print(data_fre_range_fre[1])
     result = MachineLearning.svm_model(data_fre_range_fre[1], filetrace)
     file = filetrace + r'\Model Test' + '\\' + filename + '-Label.csv'
     np.savetxt(file, result[0], fmt='%s', delimiter=',')
@@ -355,3 +355,51 @@ def averange_intensity_fre(file, filename, filetrace, smooth=1):
     f = filetrace + '\\' + 'File after Processing' + '\\' + filename + r'-Nor_ave_instensity_frequency.csv'
     np.savetxt(f, temp1, fmt='%s', delimiter=',')
     print('Averange_intensity_fre File made')
+
+
+def random_forest_learn(file_twin, file_kink, filetrace_twin, filetrace_kink, modelname, filetrace, smooth=0):
+    # 读twin的数据文件
+    print('svm_machine_learn with no model is running')
+    f_twin = Screening.read_file(file_twin)
+    # 提取出所有有用信号的频域向量
+    result1 = Screening.data_fre(f_twin, filetrace_twin, smooth)
+    fre_range = result1[0]
+    fre_twin = result1[1]
+
+    # 读kink的数据文件
+    f_kink = Screening.read_file(file_kink)
+    result2 = Screening.data_fre(f_kink, filetrace_kink, smooth)    # [[frequency range], [[fre1],[fre2],[fre3]...[fre-n]]]
+    fre_kink = result2[1]
+
+    # random forest学习
+    model = MachineLearning.random_forest(fre_twin, fre_kink, filetrace, modelname)    # [cluster_label, data_fre]
+    return model
+
+
+def RF_model_test(data_type, file, filename, filetrace, filetrace_file_cluster, smooth):
+    f = Screening.read_file(file)
+    data_fre_range_fre = Screening.data_fre(f, filetrace_file_cluster, smooth)    # [[frequency range], [[fre1],[fre2],[fre3]...[fre-n]]]
+    # print(data_fre_range_fre[1])
+    result = MachineLearning.RF_svm_model(data_fre_range_fre[1], filetrace)
+    file = filetrace + r'\Model Test' + '\\' + filename + '-RF_Label.csv'
+    np.savetxt(file, result[0], fmt='%s', delimiter=',')
+    print('RF_Model Test Over!')
+    # 测试文件为twin还是kink：
+    n_twin = 0
+    n_kink = 0
+    print(len(result[0]))
+    for i in result[0]:
+        if i == 0:
+            n_twin = n_twin + 1
+        if i == 1:
+            n_kink = n_kink + 1
+    # print('kink: ',n_kink)
+    # print('twin: ', n_twin)
+    if data_type == 'twin':
+        accuracy = n_twin / (n_twin + n_kink)
+    if data_type == 'kink':
+        accuracy = n_kink / (n_twin + n_kink)
+    print('Accuracy: ', accuracy)
+    txtfile = ['Accuracy: ' + str(accuracy)]
+    file = filetrace + r'\Model Test' + '\\' + filename + '-RF_Accuracy.txt'
+    np.savetxt(file, txtfile, fmt='%s', delimiter=',')

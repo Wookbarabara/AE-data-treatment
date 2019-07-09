@@ -9,6 +9,7 @@ from sklearn.externals import joblib
 import DrawImage
 import Screening
 import numpy as np
+from sklearn.ensemble import RandomForestClassifier
 
 
 # ===================================================
@@ -42,6 +43,7 @@ def skl_svm(data_twin, data_kink, data_fre, filetrace, filename_mark):
     data_fre_label = [1 for i in range(len(data_fre))]
     accuracy = 0
     print('Model Training Start!')
+    model_svm = svm.SVC(C=10, kernel='linear', gamma=1, probability=True)
     while accuracy < 0.8:
         # 划分训练集
         x_train, x_test, y_train, y_test = train_test_split(train_fre, train_label, test_size=0.4)
@@ -49,7 +51,6 @@ def skl_svm(data_twin, data_kink, data_fre, filetrace, filename_mark):
         if len(set(y_train)) == 1:
             continue
         # 训练模型
-        model_svm = svm.SVC(C=20, kernel='linear', gamma=1, probability=True)
         model_svm.fit(x_train, y_train)
         # 查看模型精度
         y_predicted = model_svm.predict(x_test)
@@ -70,7 +71,7 @@ def skl_svm(data_twin, data_kink, data_fre, filetrace, filename_mark):
 
 # 保存pvm模型
 def save_model(model,filetrace):
-    file = filetrace + r'\Model\train0_model.m'
+    file = filetrace + r'\Model\train31_model.m'
     joblib.dump(model, file)
     print("Done\n")
     print("Model Saving Done!\n")
@@ -79,7 +80,7 @@ def save_model(model,filetrace):
 # 支持向量机，导入模型
 def svm_model(data_fre, filetrace):
     # 导入模型
-    file = filetrace + r'\Model\train0_model.m'
+    file = filetrace + r'\Model\train31_model.m'
     model_svm = joblib.load(file)
     cluster_label = model_svm.predict(data_fre)
     result = [cluster_label, data_fre]
@@ -196,3 +197,44 @@ def svm_origin_data_process(file, filename, filetrace, label_kmeans, aim_cluster
     f = filetrace + '\\' + filename + r'-kmeans_treated.csv'
     np.savetxt(f, file_treated, fmt='%s', delimiter=',')
     print('DeNoise file-kmeans_treated File made')
+
+
+# 随机森林算法
+def random_forest(data_twin, data_kink, filetrace, modelname):
+    print('random_forest is running')
+    data_fre_label = merge_fre(data_twin, data_kink)  # [[label], [fre]]
+    train_label = data_fre_label[0]
+    train_fre = data_fre_label[1]
+    rf0 = RandomForestClassifier(oob_score=True, random_state=10)
+    accuracy = 0
+    while accuracy < 0.8:
+        # 划分训练集
+        x_train, x_test, y_train, y_test = train_test_split(train_fre, train_label, test_size=0.4)
+        # 排除所有训练数据都来自同一类型，机率很小，数据量大的时候可以不要
+        if len(set(y_train)) == 1:
+            continue
+        # 训练模型
+        rf0.fit(x_train, y_train)
+        # 查看模型精度
+        y_predicted = rf0.predict(x_test)
+        accuracy = accuracy_score(y_test, y_predicted)
+        print('accuracy: ', accuracy)
+        print('y_test: ', y_test)
+        # print('y_predicted: ', list(y_predicted))
+    # 保存模型
+    file = filetrace + r'\RF_Model' + '\\' + modelname
+    joblib.dump(rf0, file)
+    print("Done\n")
+    print("Model Saving Done!\n")
+    # 返回模型
+    return rf0
+
+
+# RF模型
+def RF_svm_model(data_fre, filetrace, modelname):
+    # 导入模型
+    file = filetrace + r'\RF_Model' + '\\' + modelname
+    model_svm = joblib.load(file)
+    cluster_label = model_svm.predict(data_fre)
+    result = [cluster_label, data_fre]
+    return result

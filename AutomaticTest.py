@@ -15,16 +15,13 @@ def svm_machine_learn(C, data_twin, data_kink, filetrace, modelname):
     data_fre_label = MachineLearning.merge_fre(data_twin, data_kink)  # [[label], [fre]]
     train_label = data_fre_label[0]
     train_fre = data_fre_label[1]
-
+    model_svm = svm.SVC(C=C, kernel='linear', gamma=1, probability=True)
+    print("C： ", C)
     accuracy = 0
     while accuracy < 0.8:
         # 划分训练集
-        model_svm = svm.SVC(C=C, kernel='linear', gamma=1, probability=True)
         x_train, x_test, y_train, y_test = train_test_split(train_fre, train_label, test_size=0.4)
         # 排除所有训练数据都来自同一类型，机率很小，数据量大的时候可以不要
-        # 检测问题
-        # print(train_fre[1])
-
         if len(set(y_train)) == 1:
             continue
         # 训练模型
@@ -36,7 +33,8 @@ def svm_machine_learn(C, data_twin, data_kink, filetrace, modelname):
         print('y_test: ', y_test)
         # print('y_predicted: ', list(y_predicted))
     # 保存模型
-    file = filetrace + r'\SVM_C_test' + '\\' + modelname
+    file = filetrace + r'\C=536' + '\\' + modelname
+    print('Model_name: ', modelname)
     joblib.dump(model_svm, file)
     print("Done\n")
     print("Model Saving Done!\n")
@@ -46,7 +44,7 @@ def svm_machine_learn(C, data_twin, data_kink, filetrace, modelname):
 
 def svm_model_local(data_fre, filetrace, modelname):
     # 导入模型
-    file = filetrace + r'\SVM_C_test' + '\\' + modelname
+    file = filetrace + r'\C=536' + '\\' + modelname
     model_svm = joblib.load(file)
     cluster_label = model_svm.predict(data_fre)
     result = [cluster_label, data_fre]
@@ -54,7 +52,9 @@ def svm_model_local(data_fre, filetrace, modelname):
 
 
 def svm_model_test(modelname, data_type, file, filename, filetrace, filetrace_file_cluster, smooth):
-    data_fre_range_fre = file
+    f = Screening.read_file(file)
+    data_fre_range_fre = Screening.data_fre(f, filetrace_file_cluster,
+                                            smooth)  # [[frequency range], [[fre1],[fre2],[fre3]...[fre-n]]]
     # print(data_fre_range_fre[1])
     result = svm_model_local(data_fre_range_fre[1], filetrace, modelname)
     print('RF_Model Test Over!')
@@ -77,10 +77,24 @@ def svm_model_test(modelname, data_type, file, filename, filetrace, filetrace_fi
     return accuracy
 
 
-# def svm_learning(C, fre_twin, fre_kink, modelname, path, smooth):
-#     # svm学习
-#     model = svm_machine_learn(C, fre_twin, fre_kink, path, modelname)  # [cluster_label, data_fre]
-#     return model
+def svm_learning(C, file_twin, file_kink, filetrace_twin, filetrace_kink, modelname, path, smooth):
+    # 读twin的数据文件
+    print('svm_machine_learn with no model is running')
+    f_twin = Screening.read_file(file_twin)
+    # 提取出所有有用信号的频域向量
+    result1 = Screening.data_fre(f_twin, filetrace_twin, smooth)
+    fre_range = result1[0]
+    fre_twin = result1[1]
+
+    # 读kink的数据文件
+    f_kink = Screening.read_file(file_kink)
+    result2 = Screening.data_fre(f_kink, filetrace_kink,
+                                 smooth)  # [[frequency range], [[fre1],[fre2],[fre3]...[fre-n]]]
+    fre_kink = result2[1]
+
+    # svm学习
+    model = svm_machine_learn(C, fre_twin, fre_kink, path, modelname)  # [cluster_label, data_fre]
+    return model
 
 
 path = r'C:\Users\liuhanqing\Desktop\research\Academic conference\data\Frequency Smoothing\normalize\event-200ms\AE'
@@ -91,55 +105,25 @@ model_twin = 'TWIN-training-Mg-Test1-EVT40dB-DeNoise'
 # kink_list = ['KINK-train-LPSOMg-0deg-Test1-EVT43dB-DeNoise', 'KINK-test-LPSOMg-0deg-Test2-EVT38dB-DeNoise']
 # twin_list = ['TWIN-training-Mg-Test1-EVT40dB-DeNoise']
 # C值测试最大值
-C = 10
+C = 1000
 # 取值的间隔
 b = 5
 n = 1
 smooth = 1
 accuracy = []
 result = [['SVM_Model', 'C', 'LPSO1', 'LPSO2', 'Mg2','Mg3']]
+temp_file = result
 file_kink = path + '\\' + model_kink + '.csv'
 file_twin = path + '\\' + model_twin + '.csv'
 filetrace_kink = path + '\\' + model_kink
 filetrace_twin = path + '\\' + model_twin
-
-# 读取建模文件
-# ===============
-f_twin = Screening.read_file(file_twin)
-# 提取出所有有用信号的频域向量
-result1 = Screening.data_fre(f_twin, filetrace_twin, smooth)
-fre_twin = result1[1]
-# 读kink的数据文件
-f_kink = Screening.read_file(file_kink)
-result2 = Screening.data_fre(f_kink, filetrace_kink,
-                             smooth)  # [[frequency range], [[fre1],[fre2],[fre3]...[fre-n]]]
-fre_kink = result2[1]
-
-# 读取训练文件
-# ===============
-fre_test = []
-for test in range(len(test_list)):
-    print(test_list[test])
-    file = path + '\\' + test_list[test] + '.csv'
-    filetrace_file_cluster = path + '\\' + test_list[test]
-    f = Screening.read_file(file)
-    data_fre_range_fre = Screening.data_fre(f, filetrace_file_cluster,
-                                            smooth)
-    # print(data_fre_range_fre)
-    fre_test.append(data_fre_range_fre)
-
-
 for i in range(1,C,b):
     modelname = 'SVM_model-' + str(n) + '.m'
-    print(modelname)
-    print("C： ", i)
+    # print(modelname)
     temp = []
-    # 测试错误
-    print(fre_kink[1])
-    print(fre_twin[1])
-
     # 建立模型
-    model = svm_machine_learn(i, fre_twin, fre_kink, path, modelname)
+    C_value = 536
+    model = svm_learning(C_value, file_twin, file_kink, filetrace_twin, filetrace_kink, modelname, path, smooth)
     # 模型测试
     temp.append(str(n))
     temp.append(i)
@@ -151,10 +135,14 @@ for i in range(1,C,b):
             data_type = 'twin'
         file = path + '\\' + test_list[test] + '.csv'
         filetrace_file_cluster = path + '\\' + test_list[test]
-        temp_accuracy = svm_model_test(modelname, data_type, fre_test[test], test_list[test], path, filetrace_file_cluster, smooth)
+        temp_accuracy = svm_model_test(modelname, data_type, file, test_list[test], path, filetrace_file_cluster, smooth)
         temp.append(temp_accuracy)
     result.append(temp)
+    temp_file.append(temp)
+    f = path + '\\' + 'C=536' + '\\' + '_model-' + str(n) + r'.csv'
+    np.savetxt(f, temp_file, fmt='%s', delimiter=',')
+    temp_file = [['SVM_Model', 'C', 'LPSO1', 'LPSO2', 'Mg2','Mg3']]
     n = n + 1
 # 生成一个file
-f = path + '\\' + 'SVM_C_test' + '\\' + 'C_Accuracy' + r'.csv'
+f = path + '\\' + 'C=536' + '\\' + 'C_Accuracy' + r'.csv'
 np.savetxt(f, result, fmt='%s', delimiter=',')
